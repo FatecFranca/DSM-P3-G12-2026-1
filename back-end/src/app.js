@@ -12,6 +12,11 @@ app.use(json())
 app.use(urlencoded({ extended: false }))
 app.use(cookieParser())
 
+
+
+/******************** ROTAS ********************/
+import categoriasRouter from './routes/categorias.js'
+app.use('/categorias', categoriasRouter)
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 
