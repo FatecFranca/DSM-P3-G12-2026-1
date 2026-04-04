@@ -1,0 +1,51 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="NoAM Final Simplificado" id="0">
+    <mxGraphModel dx="1467" dy="907" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="user" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D6EAF8;fillColor=#1D2D44;fontColor=#FFFFFF;fontSize=13;align=left;spacing=10;" value="&lt;b&gt;Usuário&lt;/b&gt;&lt;hr/&gt;id: UUID [obrigatório]&lt;br/&gt;nome: string [obrigatório]&lt;br/&gt;email: string [obrigatório]&lt;br/&gt;senhaHash: string [obrigatório]&lt;br/&gt;dataCriacao: datetime [obrigatório]&lt;br/&gt;ativo: bool [obrigatório]" vertex="1">
+          <mxGeometry height="190" width="320" x="560" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="collection" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#E8DAEF;fillColor=#40324A;fontColor=#FFFFFF;fontSize=13;align=left;spacing=10;" value="&lt;b&gt;Coleção&lt;/b&gt;&lt;hr/&gt;id: UUID [obrigatório]&lt;br/&gt;usuarioId: UUID [obrigatório]&lt;br/&gt;nome: string [obrigatório]&lt;br/&gt;descricao: string [opcional]&lt;br/&gt;corHex: string [opcional]&lt;br/&gt;dataCriacao: datetime [obrigatório]" vertex="1">
+          <mxGeometry height="190" width="320" x="90" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="book" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D5F5E3;fillColor=#1E3A20;fontColor=#FFFFFF;fontSize=13;align=left;spacing=10;" value="&lt;b&gt;Livro&lt;/b&gt;&lt;hr/&gt;id: UUID [obrigatório]&lt;br/&gt;usuarioId: UUID [obrigatório]&lt;br/&gt;colecaoId: UUID [obrigatório]&lt;br/&gt;titulo: string [obrigatório]&lt;br/&gt;autor: string [obrigatório]&lt;br/&gt;isbn: string [opcional]&lt;br/&gt;editora: string [opcional]&lt;br/&gt;anoPublicacao: int [opcional]&lt;br/&gt;idioma: string [obrigatório]&lt;br/&gt;numeroPaginas: int [opcional]&lt;br/&gt;sinopse: string [opcional]&lt;br/&gt;dataCriacao: datetime [obrigatório]" vertex="1">
+          <mxGeometry height="280" width="340" x="550" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="tag" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FDEBD0;fillColor=#5C3400;fontColor=#FFFFFF;fontSize=13;align=left;spacing=10;" value="&lt;b&gt;Tag&lt;/b&gt;&lt;hr/&gt;id: UUID [obrigatório]&lt;br/&gt;usuarioId: UUID [obrigatório]&lt;br/&gt;nome: string [obrigatório]&lt;br/&gt;descricao: string [opcional]&lt;br/&gt;corHex: string [opcional]&lt;br/&gt;dataCriacao: datetime [obrigatório]" vertex="1">
+          <mxGeometry height="190" width="320" x="1030" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="highlight" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#D5D8DC;fillColor=#1C1C1C;fontColor=#FFFFFF;fontSize=13;align=left;spacing=10;" value="&lt;b&gt;Destaque&lt;/b&gt;&lt;hr&gt;id: UUID [obrigatório]&lt;br&gt;livroId: UUID [obrigatório]&lt;br&gt;trechoExtraido: string [obrigatório]&lt;br&gt;textoCorrigido: string [opcional]&lt;br&gt;pagina: int [opcional]&lt;br&gt;localizacao: string [opcional]&lt;br&gt;favorito: bool [obrigatório]&lt;br&gt;dataCriacao: datetime [obrigatório]&lt;div&gt;tags: [string] [opcional]&lt;/div&gt;" vertex="1">
+          <mxGeometry height="210" width="340" x="550" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;startArrow=diamond;startFill=1;endArrow=none;fontColor=#000000;labelBackgroundColor=#FFFFFF;fontSize=20;" target="collection" value="1           0..*">
+          <mxGeometry relative="1" x="-0.0017" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;startArrow=diamond;startFill=1;endArrow=none;fontColor=#000000;labelBackgroundColor=#FFFFFF;fontSize=20;" target="book" value="1           0..*">
+          <mxGeometry relative="1" x="-0.0075" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;startArrow=diamond;startFill=1;endArrow=none;fontColor=#000000;labelBackgroundColor=#FFFFFF;fontSize=20;" target="tag" value="1           0..*">
+          <mxGeometry relative="1" x="-0.0017" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="collection" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;startArrow=none;endArrow=none;fontColor=#000000;labelBackgroundColor=#FFFFFF;fontSize=20;" target="book" value="0..*           1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="book" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;startArrow=diamond;startFill=1;endArrow=none;fontColor=#000000;labelBackgroundColor=#FFFFFF;fontSize=20;" target="highlight" value="1           0..*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="highlight" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;startArrow=none;endArrow=none;fontColor=#000000;labelBackgroundColor=#FFFFFF;fontSize=20;" target="tag" value="0..*           0..*">
+          <mxGeometry relative="1" x="-0.2521" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
